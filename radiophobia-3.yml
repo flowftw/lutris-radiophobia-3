@@ -1,0 +1,40 @@
+name: Radiophobia 3
+game_slug: radiophobia-3
+version: Installer
+slug: radiophobia-3-installer
+runner: wine
+
+script:
+  wine:
+    Desktop: true
+    version: GE-Proton10-7
+  game:
+    exe: $GAMEDIR/drive_c/Radiophobia 3/Radiophobia 3.exe
+  files:
+    # - file1:
+    #     # url: https://www.moddb.com/downloads/start/279991
+    #     # url: https://www.moddb.com/mods/radiophobia/downloads/radiophobia-3-ver-118
+    #     url: https://www.moddb.com/mods/radiophobia/downloads/radiophobia-3-patch-119
+    #     filename: radiophobia-3.zip
+    - radiophobia3-118: "N/A:Download Radiophobia 3 v1.18 zip and select it here https://www.moddb.com/mods/radiophobia"
+    - radiophobia3-119: "N/A:Download Radiophobia 3 v1.19 update zip and select it here https://www.moddb.com/mods/radiophobia/downloads/radiophobia-3-patch-119"
+  installer:
+    - task:
+        name: create_prefix
+        arch: win64
+    - extract:
+        file: radiophobia3-118
+        dst: $CACHE/Radiophobia3/
+        format: zip
+    - task: 
+        app: d3dcompiler_47 vcrun2022
+        name: winetricks
+        silent: false
+    - task:
+        name: wineexec
+        executable: $CACHE/Radiophobia3/Radiophobia-3-Ver.-1.18-Setup.exe
+        args: /SP- /SILENT /SUPPRESSMSGBOXES 
+    - extract:
+        file: radiophobia3-119
+        dst: $GAMEDIR/drive_c/Radiophobia 3/
+        format: zip
