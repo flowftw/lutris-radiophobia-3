@@ -7,7 +7,6 @@ runner: wine
 script:
   wine:
     Desktop: true
-    version: GE-Proton10-7
   game:
     exe: $GAMEDIR/drive_c/Radiophobia 3/Radiophobia 3.exe
   files:
