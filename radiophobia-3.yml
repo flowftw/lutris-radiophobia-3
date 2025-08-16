@@ -11,13 +11,12 @@ script:
   game:
     exe: $GAMEDIR/drive_c/Radiophobia 3/Radiophobia 3.exe
   files:
-    # - file1:
-    #     # url: https://www.moddb.com/downloads/start/279991
-    #     # url: https://www.moddb.com/mods/radiophobia/downloads/radiophobia-3-ver-118
-    #     url: https://www.moddb.com/mods/radiophobia/downloads/radiophobia-3-patch-119
-    #     filename: radiophobia-3.zip
-    - radiophobia3-118: "N/A:Download Radiophobia 3 v1.18 zip and select it here https://www.moddb.com/mods/radiophobia"
-    - radiophobia3-119: "N/A:Download Radiophobia 3 v1.19 update zip and select it here https://www.moddb.com/mods/radiophobia/downloads/radiophobia-3-patch-119"
+    - radiophobia3-118:
+        url: https://www.moddb.com/mods/radiophobia/downloads/radiophobia-3-ver-118
+        filename: radiophobia-3-1.18.zip
+    - radiophobia3-119:
+        url: https://www.moddb.com/mods/radiophobia/downloads/radiophobia-3-patch-119
+        filename: radiophobia-3-1.19.zip
   installer:
     - task:
         name: create_prefix
